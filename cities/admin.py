@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib.gis import admin
 
 import swapper
 
@@ -6,7 +6,8 @@ from .models import (Continent, Country, Region, Subregion, City, District,
                      PostalCode, AlternativeName)
 
 
-class CitiesAdmin(admin.ModelAdmin):
+class CitiesAdmin(admin.OSMGeoAdmin):
+    openlayers_url = 'https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js'
     raw_id_fields = ['alt_names']
 
 
